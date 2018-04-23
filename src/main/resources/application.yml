@@ -5,7 +5,7 @@ spring:
     host: localhost
     password: sc_admin
   datasource:
-    url: jdbc:postgresql://localhost:5432/look_user
+    url: jdbc:postgresql://localhost:5432/look_message
     username: postgres
     password: postgres
     driver-class-name: org.postgresql.Driver

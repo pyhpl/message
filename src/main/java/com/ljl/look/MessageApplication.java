@@ -8,7 +8,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication
 @EnableTransactionManagement
-@EnableDiscoveryClient
+//@EnableDiscoveryClient
 @MapperScan("org.ljl.look.message.mapper")
 public class MessageApplication {
     public static void main(String[] args) {
