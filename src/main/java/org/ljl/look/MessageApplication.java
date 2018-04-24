@@ -1,4 +1,4 @@
-package com.ljl.look;
+package org.ljl.look;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
@@ -8,7 +8,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication
 @EnableTransactionManagement
-//@EnableDiscoveryClient
+@EnableDiscoveryClient
 @MapperScan("org.ljl.look.message.mapper")
 public class MessageApplication {
     public static void main(String[] args) {

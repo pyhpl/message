@@ -30,6 +30,8 @@ repositories {
 }
 
 dependencies {
+    compile('org.springframework.boot:spring-boot-starter-amqp')
+    compile('com.github.pagehelper:pagehelper-spring-boot-starter:1.2.4')
     compile('org.springframework.cloud:spring-cloud-starter-netflix-eureka-client') // Spring cloud客户端。
     compile('org.springframework.boot:spring-boot-starter-web')
     compile('org.projectlombok:lombok:1.16.18')
