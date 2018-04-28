@@ -17,6 +17,6 @@ public interface MessageMapper {
     @SelectProvider(type = MessageSql.class, method = "select")
     List<Message> selectByToUserAndIsRead(@Param("toUser") String toUser, @Param("isRead") Boolean isRead);
 
-    @Insert("INSERT INTO message VALUES(#{uuid}::uuid, #{type}, #{fromUser}, #{toUser}, #{title}, #{content}, #{is_read}, #{sendDate}, #{valid})")
+    @Insert("INSERT INTO message VALUES(#{uuid}::uuid, #{type}, #{fromUser}, #{toUser}, #{title}, #{content}, #{isRead}, #{sendDate}, #{valid})")
     void insert(Message message);
 }
