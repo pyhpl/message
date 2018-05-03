@@ -1,6 +1,7 @@
 package org.ljl.look.message.mapper.sql;
 
 import org.apache.ibatis.jdbc.SQL;
+import org.ljl.look.message.entity.Message;
 import org.springframework.stereotype.Component;
 
 import java.util.Map;
@@ -33,6 +34,14 @@ public class MessageSql {
                 WHERE("is_read=#{isRead}").AND();
             }
             WHERE("valid=1");
+        }}.toString();
+    }
+
+    public String update(Message message) {
+        return new SQL() {{
+            UPDATE("message");
+            SET("is_read=TRUE");
+            WHERE("uuid=#{uuid}::uuid");
         }}.toString();
     }
 

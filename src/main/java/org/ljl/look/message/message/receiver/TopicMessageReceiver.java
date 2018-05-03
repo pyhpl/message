@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @RabbitListener(queues = ConstConfig.QUEUE_MESSAGE)
-public class MessageReceiver {
+public class TopicMessageReceiver {
 
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
@@ -32,8 +32,10 @@ public class MessageReceiver {
         Message message = topicMessageWrapper.getBody();
         switch (topicMessageWrapper.getMethod()) {
             case POST:
-                messagingTemplate.convertAndSendToUser(message.getToUser(), "/message-count", -1);
-                messagingTemplate.convertAndSendToUser(message.getToUser(), "/message", message);
+                if (message.getToUser() != null) {
+                    messagingTemplate.convertAndSendToUser(message.getToUser(), "/message-count", -1);
+                    messagingTemplate.convertAndSendToUser(message.getToUser(), "/message", message);
+                }
                 // 将token转换为openid
                 message.setToUser(stringRedisTemplate.opsForValue().get(message.getToUser()));
                 messageService.add(message);

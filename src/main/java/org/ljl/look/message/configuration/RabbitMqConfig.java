@@ -12,5 +12,8 @@ public class RabbitMqConfig {
         return new Queue(ConstConfig.QUEUE_MESSAGE);
     }
 
-
+    @Bean
+    Queue joinMessageQueue() {
+        return new Queue(ConstConfig.QUEUE_JOIN_MESSAGE);
+    }
 }

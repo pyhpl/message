@@ -14,6 +14,11 @@ public class ConstConfig {
     public static final String DEFAULT_PAGE_NUM = "1";
     public static final String DEFAULT_PAGE_SIZE = "10";
 
+    /** message type */
+    public static final short AUDIT_MESSAGE = (short) 1;
+    public static final short JOIN_MESSAGE = (short) 2;
+
     /** rabbitmq */
     public static final String QUEUE_MESSAGE = "queueMessage";
+    public static final String QUEUE_JOIN_MESSAGE = "queueJoinMessage";
 }

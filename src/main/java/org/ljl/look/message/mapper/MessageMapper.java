@@ -19,4 +19,8 @@ public interface MessageMapper {
 
     @Insert("INSERT INTO message VALUES(#{uuid}::uuid, #{type}, #{fromUser}, #{toUser}, #{title}, #{content}, #{isRead}, #{sendDate}, #{valid})")
     void insert(Message message);
+
+//    @Update("UPDATE message SET is_read=#{isRead} WHERE uuid=#{uuid}::uuid")
+    @UpdateProvider(type = MessageSql.class, method = "update")
+    void update(Message message);
 }
